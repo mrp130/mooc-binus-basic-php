@@ -6,7 +6,7 @@ body{
 nav{
 	background: whitesmoke;
 	height: 20px;
-	padding: 10px;
+	padding: 10px 10% 10px 10%;
 }
 
 .card{
