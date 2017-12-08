@@ -1,8 +1,20 @@
 <?php
 
-//$_GET adalah array yang berisi data request yang dikirim dengan http method GET
-//$_POST adalah array yang berisi data request yang dikirim dengan http method POST
-//$_REQUEST adalah array yang berisi data request yang dikirim lewat http method apapun
+require '../connect.php';
 
-var_dump($_POST); //menampilkan semua isi array $_POST
-$post = $_POST['post']; //simpan data array dengan key 'post' ke dalam variabel $post
+$post = $_POST['post'];
+if($post == ''){
+	$query_string = '?message=Post harus diisi';
+	header("Location:../../index.php$query_string");
+	die();
+}
+
+session_start();
+$user_id = $_SESSION['user_id'];
+
+$query = "INSERT INTO posts(post, user_id) VALUES('$post', $user_id)";
+mysqli_query($con, $query);
+
+$query_string = '?message=Post berhasil dimasukkan';
+header("Location:../../index.php$query_string");
+die();

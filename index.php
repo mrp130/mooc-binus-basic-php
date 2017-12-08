@@ -23,32 +23,23 @@
 	<form action="action/post/doInsert.php" method="POST">
 		<textarea name="post"></textarea>
 		<input type="submit" value="Post">
+		<span><?= $_GET['message'] ?? '' ?></span>
 	</form>
 </div>
 
+<?php 
+	require 'action/connect.php';
+	$query = "SELECT * FROM posts JOIN users ON posts.user_id = users.id ORDER BY posts.id DESC";
+	$posts = mysqli_query($con, $query);
+	while($post = mysqli_fetch_assoc($posts)){
+?>
 <div class="card">
-	<header>Post Header</header>
+	<header><?= $post['username'] ?></header>
 	<article>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		<?= $post['post'] ?>
 	</article>
 </div>
-<div class="card">
-	<header>Post Header</header>
-	<article>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</article>
-</div>
-
+<?php } ?>
 
 </body>
 </html>
