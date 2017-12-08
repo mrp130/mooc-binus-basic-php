@@ -1,3 +1,8 @@
+<?php
+	require 'action/global_function.php';
+	if(isLogin())
+		header('Location:index.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
