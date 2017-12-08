@@ -7,12 +7,15 @@
 <form action="action/user/doLogin.php" method="POST">
 	<div>
 		<input type="text" name="username" placeholder="Username">
+		<span><?= $_GET['err_login_username'] ?? '' ?></span>
 	</div>
 	<div>
 		<input type="password" name="password" placeholder="Password">
+		<span><?= $_GET['err_login_password'] ?? '' ?></span>
 	</div>
 	<div>
 		<input type="submit" value="Login">
+		<span><?= $_GET['login_message'] ?? '' ?></span>
 	</div>
 </form>
 <form action="action/user/doRegister.php" method="POST">

@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +12,9 @@
 
 <nav>
 	<div style="float:right">
-		<span>Username</span>
+		<span><?= $_SESSION['username'] ?></span>
 		<span>
-			<a href="#">Logout</a>
+			<a href="action/user/doLogout.php">Logout</a>
 		</span>
 	</div>
 </nav>
