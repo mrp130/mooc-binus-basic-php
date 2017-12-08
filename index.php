@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MOOC :: Basic PHP</title>
+	<title>Basic PHP</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
