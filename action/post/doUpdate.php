@@ -3,7 +3,7 @@
 require '../connect.php';
 require '../global_function.php';
 
-$id = $_GET['id'];
+$id = $_POST['id'];
 $query = "SELECT * FROM posts where id = $id";
 $result = mysqli_query($con, $query);
 $post = mysqli_fetch_assoc($result);
